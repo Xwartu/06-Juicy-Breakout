@@ -39,3 +39,16 @@ The grading criteria will be as follows:
  - [1] No (script) syntax errors
  - [1] No other runtime errors
  - [16] Features to make the game more "juicy"
+ 
+ 
+ Added:
+1. Color to tiles
+2. Color to Paddle
+3. Background Music
+4. Each layer of Tiles has different point scripts
+5. Changed ball to Basketball
+6. Added Background
+7. HUD to Score and Lives
+8. Ball sound effect on tile collison 
+9. Screen Shake on New Ball
+10. Added Game oveer music
