@@ -50,5 +50,10 @@ The grading criteria will be as follows:
 6. Added Background
 7. HUD to Score and Lives
 8. Ball sound effect on tile collison 
-9. Screen Shake on New Ball
-10. Added Game oveer music
+9. Added eyes to paddle
+10. Added Game over music
+11. Added eyes1 to Tileset 1 and Tileset 5
+12. Added different eyes to tileset 2 and 4
+13. Added unique eyes to tileset 5
+14.
+15.
