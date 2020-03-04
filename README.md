@@ -50,7 +50,9 @@ The grading criteria will be as follows:
 6. Added Background
 7. HUD to Score and Lives
 8. Ball sound effect on tile collison 
+
 For some reason the eyes seem to be clipping through the tiles in the scene menu, but are layered correctly when run. 
+
 9. Added eyes to paddle
 10. Added Game over music
 11. Added eyes1 to Tileset 1 and Tileset 5
