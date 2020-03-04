@@ -1,37 +1,159 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=33 format=2]
 
 [ext_resource path="res://Scripts/Game.gd" type="Script" id=1]
-[ext_resource path="res://Scripts/Paddle.gd" type="Script" id=2]
-[ext_resource path="res://Scenes/Tile.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Scripts/Score.gd" type="Script" id=4]
-[ext_resource path="res://Scripts/Lives.gd" type="Script" id=5]
-[ext_resource path="res://Scripts/Starting.gd" type="Script" id=6]
+[ext_resource path="res://Assets/Hall of the Mountain King - Kevin MacLeod (No Copyright Music).ogg" type="AudioStream" id=2]
+[ext_resource path="res://Assets/floor.jpg" type="Texture" id=3]
+[ext_resource path="res://Scripts/Skybox.gd" type="Script" id=4]
+[ext_resource path="res://Scripts/Camera.gd" type="Script" id=5]
+[ext_resource path="res://Scripts/Paddle.gd" type="Script" id=6]
+[ext_resource path="res://Scenes/Tile.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scripts/Tile5.gd" type="Script" id=8]
+[ext_resource path="res://Scripts/Tile4.gd" type="Script" id=9]
+[ext_resource path="res://Scripts/Tile3.gd" type="Script" id=10]
+[ext_resource path="res://Scripts/Tile2.gd" type="Script" id=11]
+[ext_resource path="res://Scripts/Score.gd" type="Script" id=12]
+[ext_resource path="res://Scripts/Starting.gd" type="Script" id=13]
+[ext_resource path="res://Scripts/Lives.gd" type="Script" id=14]
+[ext_resource path="res://Assets/[No Copyright Music] Chill LoFi Hip-Hop Beat FREE (Copyright Free) Music By_ LAKEY INSPIRED.ogg" type="AudioStream" id=15]
+[ext_resource path="res://Assets/eyeball/sprite0_strip16.png" type="Texture" id=16]
+[ext_resource path="res://Assets/Court.png" type="Texture" id=17]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 72, 16 )
 
+[sub_resource type="AtlasTexture" id=12]
+flags = 4
+atlas = ExtResource( 16 )
+region = Rect2( 4800, 0, 480, 480 )
+
+[sub_resource type="AtlasTexture" id=13]
+flags = 4
+atlas = ExtResource( 16 )
+region = Rect2( 5280, 0, 480, 480 )
+
+[sub_resource type="AtlasTexture" id=14]
+flags = 4
+atlas = ExtResource( 16 )
+region = Rect2( 5760, 0, 480, 480 )
+
+[sub_resource type="AtlasTexture" id=15]
+flags = 4
+atlas = ExtResource( 16 )
+region = Rect2( 6240, 0, 480, 480 )
+
+[sub_resource type="AtlasTexture" id=16]
+flags = 4
+atlas = ExtResource( 16 )
+region = Rect2( 6720, 0, 480, 480 )
+
+[sub_resource type="AtlasTexture" id=17]
+flags = 4
+atlas = ExtResource( 16 )
+region = Rect2( 7200, 0, 480, 480 )
+
+[sub_resource type="AtlasTexture" id=2]
+flags = 4
+atlas = ExtResource( 16 )
+region = Rect2( 0, 0, 480, 480 )
+
+[sub_resource type="AtlasTexture" id=3]
+flags = 4
+atlas = ExtResource( 16 )
+region = Rect2( 480, 0, 480, 480 )
+
+[sub_resource type="AtlasTexture" id=4]
+flags = 4
+atlas = ExtResource( 16 )
+region = Rect2( 960, 0, 480, 480 )
+
+[sub_resource type="AtlasTexture" id=5]
+flags = 4
+atlas = ExtResource( 16 )
+region = Rect2( 1440, 0, 480, 480 )
+
+[sub_resource type="AtlasTexture" id=6]
+flags = 4
+atlas = ExtResource( 16 )
+region = Rect2( 1920, 0, 480, 480 )
+
+[sub_resource type="AtlasTexture" id=7]
+flags = 4
+atlas = ExtResource( 16 )
+region = Rect2( 2400, 0, 480, 480 )
+
+[sub_resource type="AtlasTexture" id=8]
+flags = 4
+atlas = ExtResource( 16 )
+region = Rect2( 2880, 0, 480, 480 )
+
+[sub_resource type="SpriteFrames" id=18]
+animations = [ {
+"frames": [ SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 7 ), SubResource( 6 ), SubResource( 5 ), SubResource( 3 ), SubResource( 2 ), SubResource( 17 ), SubResource( 16 ), SubResource( 15 ), SubResource( 14 ), SubResource( 13 ), SubResource( 12 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
 [node name="Game" type="Node2D"]
 script = ExtResource( 1 )
+
+[node name="Mountain" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 2 )
+autoplay = true
+
+[node name="Background" type="Node2D" parent="."]
+
+[node name="Skybox" type="Sprite" parent="Background"]
+position = Vector2( 510.849, 300.555 )
+scale = Vector2( 0.808029, 0.639615 )
+texture = ExtResource( 3 )
+script = ExtResource( 4 )
+
+[node name="Court" type="Sprite" parent="Background"]
+position = Vector2( 508.912, 301.296 )
+rotation = 1.5708
+scale = Vector2( -1.51303, 1.41046 )
+texture = ExtResource( 17 )
 
 [node name="Camera" type="Camera2D" parent="."]
 anchor_mode = 0
 current = true
+script = ExtResource( 5 )
 
 [node name="Paddle" type="KinematicBody2D" parent="."]
-position = Vector2( 544, 552 )
-script = ExtResource( 2 )
-__meta__ = {
-"_edit_group_": true
-}
+position = Vector2( 536.092, 541.607 )
+script = ExtResource( 6 )
 
 [node name="ColorRect" type="ColorRect" parent="Paddle"]
 margin_left = -72.0
 margin_top = -16.0
 margin_right = 72.0
 margin_bottom = 16.0
+color = Color( 0.219608, 0.219608, 0.219608, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Paddle"]
 shape = SubResource( 1 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Paddle"]
+position = Vector2( -54.1958, 0.524414 )
+rotation = 1.09956
+scale = Vector2( 0.08, 0.08 )
+frames = SubResource( 18 )
+frame = 1
+speed_scale = 1.5
+playing = true
+
+[node name="AnimatedSprite2" type="AnimatedSprite" parent="Paddle"]
+position = Vector2( 55.8198, 1.20215 )
+rotation = -1.09956
+scale = Vector2( 0.08, 0.08 )
+frames = SubResource( 18 )
+frame = 1
+speed_scale = 1.5
+playing = true
 
 [node name="Wall" type="StaticBody2D" parent="."]
 
@@ -42,187 +164,1176 @@ polygon = PoolVector2Array( 0, 632, 0, 0, 1024, 0, 1024, 632, 1064, 632, 1064, -
 
 [node name="Tile Row 1" type="Node2D" parent="Tiles"]
 
-[node name="Tile" parent="Tiles/Tile Row 1" instance=ExtResource( 3 )]
+[node name="Tile" parent="Tiles/Tile Row 1" instance=ExtResource( 7 )]
+modulate = Color( 0.690196, 0.960784, 0.258824, 1 )
 position = Vector2( 184, 296 )
 
-[node name="Tile2" parent="Tiles/Tile Row 1" instance=ExtResource( 3 )]
+[node name="AnimatedSprite3" type="AnimatedSprite" parent="Tiles/Tile Row 1/Tile"]
+position = Vector2( -20.926, -0.262482 )
+scale = Vector2( 0.05, 0.05 )
+frames = SubResource( 18 )
+frame = 15
+speed_scale = 1.5
+playing = true
+
+[node name="AnimatedSprite7" type="AnimatedSprite" parent="Tiles/Tile Row 1/Tile"]
+position = Vector2( 19.1255, -0.262482 )
+scale = Vector2( 0.05, 0.05 )
+frames = SubResource( 18 )
+frame = 15
+speed_scale = 1.5
+playing = true
+
+[node name="Tile2" parent="Tiles/Tile Row 1" instance=ExtResource( 7 )]
+modulate = Color( 0.690196, 0.960784, 0.258824, 1 )
 position = Vector2( 256, 296 )
 
-[node name="Tile3" parent="Tiles/Tile Row 1" instance=ExtResource( 3 )]
+[node name="AnimatedSprite6" type="AnimatedSprite" parent="Tiles/Tile Row 1/Tile2"]
+position = Vector2( 20.299, 0.850006 )
+scale = Vector2( 0.05, 0.05 )
+frames = SubResource( 18 )
+frame = 14
+speed_scale = 1.5
+playing = true
+
+[node name="AnimatedSprite5" type="AnimatedSprite" parent="Tiles/Tile Row 1/Tile2"]
+position = Vector2( -20.8746, 0.618011 )
+scale = Vector2( 0.05, 0.05 )
+frames = SubResource( 18 )
+frame = 14
+speed_scale = 1.5
+playing = true
+
+[node name="Tile3" parent="Tiles/Tile Row 1" instance=ExtResource( 7 )]
+modulate = Color( 0.690196, 0.960784, 0.258824, 1 )
 position = Vector2( 328, 296 )
 
-[node name="Tile4" parent="Tiles/Tile Row 1" instance=ExtResource( 3 )]
+[node name="AnimatedSprite7" type="AnimatedSprite" parent="Tiles/Tile Row 1/Tile3"]
+position = Vector2( -19.9467, 1.13477 )
+scale = Vector2( 0.05, 0.05 )
+frames = SubResource( 18 )
+frame = 13
+speed_scale = 1.5
+playing = true
+
+[node name="AnimatedSprite8" type="AnimatedSprite" parent="Tiles/Tile Row 1/Tile3"]
+position = Vector2( 21.2057, 1.06979 )
+scale = Vector2( 0.05, 0.05 )
+frames = SubResource( 18 )
+frame = 12
+speed_scale = 1.5
+playing = true
+
+[node name="Tile4" parent="Tiles/Tile Row 1" instance=ExtResource( 7 )]
+modulate = Color( 0.690196, 0.960784, 0.258824, 1 )
 position = Vector2( 400, 296 )
 
-[node name="Tile5" parent="Tiles/Tile Row 1" instance=ExtResource( 3 )]
+[node name="AnimatedSprite9" type="AnimatedSprite" parent="Tiles/Tile Row 1/Tile4"]
+position = Vector2( -20.0477, 1.48108 )
+scale = Vector2( 0.05, 0.05 )
+frames = SubResource( 18 )
+frame = 12
+speed_scale = 1.5
+playing = true
+
+[node name="AnimatedSprite10" type="AnimatedSprite" parent="Tiles/Tile Row 1/Tile4"]
+position = Vector2( 21.3254, 0.949799 )
+scale = Vector2( 0.05, 0.05 )
+frames = SubResource( 18 )
+frame = 11
+speed_scale = 1.5
+playing = true
+
+[node name="Tile5" parent="Tiles/Tile Row 1" instance=ExtResource( 7 )]
+modulate = Color( 0.690196, 0.960784, 0.258824, 1 )
 position = Vector2( 472, 296 )
 
-[node name="Tile6" parent="Tiles/Tile Row 1" instance=ExtResource( 3 )]
+[node name="AnimatedSprite11" type="AnimatedSprite" parent="Tiles/Tile Row 1/Tile5"]
+position = Vector2( -19.4258, 0.949799 )
+scale = Vector2( 0.05, 0.05 )
+frames = SubResource( 18 )
+frame = 11
+speed_scale = 1.5
+playing = true
+
+[node name="AnimatedSprite12" type="AnimatedSprite" parent="Tiles/Tile Row 1/Tile5"]
+position = Vector2( 21.2924, 1.08505 )
+scale = Vector2( 0.05, 0.05 )
+frames = SubResource( 18 )
+frame = 10
+speed_scale = 1.5
+playing = true
+
+[node name="Tile6" parent="Tiles/Tile Row 1" instance=ExtResource( 7 )]
+modulate = Color( 0.690196, 0.960784, 0.258824, 1 )
 position = Vector2( 544, 296 )
 
-[node name="Tile7" parent="Tiles/Tile Row 1" instance=ExtResource( 3 )]
+[node name="AnimatedSprite14" type="AnimatedSprite" parent="Tiles/Tile Row 1/Tile6"]
+position = Vector2( 20.7718, 0.503876 )
+scale = Vector2( 0.05, 0.05 )
+frames = SubResource( 18 )
+frame = 9
+speed_scale = 1.5
+playing = true
+
+[node name="AnimatedSprite13" type="AnimatedSprite" parent="Tiles/Tile Row 1/Tile6"]
+position = Vector2( -21.0698, 0.697601 )
+scale = Vector2( 0.05, 0.05 )
+frames = SubResource( 18 )
+frame = 9
+speed_scale = 1.5
+playing = true
+
+[node name="Tile7" parent="Tiles/Tile Row 1" instance=ExtResource( 7 )]
+modulate = Color( 0.690196, 0.960784, 0.258824, 1 )
 position = Vector2( 616, 296 )
 
-[node name="Tile8" parent="Tiles/Tile Row 1" instance=ExtResource( 3 )]
+[node name="AnimatedSprite15" type="AnimatedSprite" parent="Tiles/Tile Row 1/Tile7"]
+position = Vector2( -21.7235, 0.819427 )
+scale = Vector2( 0.05, 0.05 )
+frames = SubResource( 18 )
+frame = 8
+speed_scale = 1.5
+playing = true
+
+[node name="AnimatedSprite16" type="AnimatedSprite" parent="Tiles/Tile Row 1/Tile7"]
+position = Vector2( 21.0346, 0.661652 )
+scale = Vector2( 0.05, 0.05 )
+frames = SubResource( 18 )
+frame = 8
+speed_scale = 1.5
+playing = true
+
+[node name="Tile8" parent="Tiles/Tile Row 1" instance=ExtResource( 7 )]
+modulate = Color( 0.690196, 0.960784, 0.258824, 1 )
 position = Vector2( 688, 296 )
 
-[node name="Tile9" parent="Tiles/Tile Row 1" instance=ExtResource( 3 )]
+[node name="AnimatedSprite17" type="AnimatedSprite" parent="Tiles/Tile Row 1/Tile8"]
+position = Vector2( -20.3563, 0.661621 )
+scale = Vector2( 0.05, 0.05 )
+frames = SubResource( 18 )
+frame = 8
+speed_scale = 1.5
+playing = true
+
+[node name="AnimatedSprite18" type="AnimatedSprite" parent="Tiles/Tile Row 1/Tile8"]
+position = Vector2( 21.7707, 0.661621 )
+scale = Vector2( 0.05, 0.05 )
+frames = SubResource( 18 )
+frame = 7
+speed_scale = 1.5
+playing = true
+
+[node name="Tile9" parent="Tiles/Tile Row 1" instance=ExtResource( 7 )]
+modulate = Color( 0.690196, 0.960784, 0.258824, 1 )
 position = Vector2( 760, 296 )
 
-[node name="Tile10" parent="Tiles/Tile Row 1" instance=ExtResource( 3 )]
+[node name="AnimatedSprite20" type="AnimatedSprite" parent="Tiles/Tile Row 1/Tile9"]
+position = Vector2( 21.2448, 0.977203 )
+scale = Vector2( 0.05, 0.05 )
+frames = SubResource( 18 )
+frame = 6
+speed_scale = 1.5
+playing = true
+
+[node name="AnimatedSprite19" type="AnimatedSprite" parent="Tiles/Tile Row 1/Tile9"]
+position = Vector2( -21.0402, 0.819366 )
+scale = Vector2( 0.05, 0.05 )
+frames = SubResource( 18 )
+frame = 7
+speed_scale = 1.5
+playing = true
+
+[node name="Tile10" parent="Tiles/Tile Row 1" instance=ExtResource( 7 )]
+modulate = Color( 0.690196, 0.960784, 0.258824, 1 )
 position = Vector2( 832, 296 )
+
+[node name="AnimatedSprite21" type="AnimatedSprite" parent="Tiles/Tile Row 1/Tile10"]
+position = Vector2( -21.2505, 0.819458 )
+scale = Vector2( 0.05, 0.05 )
+frames = SubResource( 18 )
+frame = 6
+speed_scale = 1.5
+playing = true
+
+[node name="AnimatedSprite22" type="AnimatedSprite" parent="Tiles/Tile Row 1/Tile10"]
+position = Vector2( 20.8478, 1.47141 )
+scale = Vector2( 0.05, 0.05 )
+frames = SubResource( 18 )
+frame = 5
+speed_scale = 1.5
+playing = true
 
 [node name="Tile Row 2" type="Node2D" parent="Tiles"]
 
-[node name="Tile" parent="Tiles/Tile Row 2" instance=ExtResource( 3 )]
+[node name="Tile" parent="Tiles/Tile Row 2" instance=ExtResource( 7 )]
+modulate = Color( 0.196078, 0.658824, 0.321569, 1 )
+self_modulate = Color( 0.196078, 0.658824, 0.321569, 1 )
 position = Vector2( 184, 256 )
+script = ExtResource( 8 )
 
-[node name="Tile2" parent="Tiles/Tile Row 2" instance=ExtResource( 3 )]
-position = Vector2( 256, 256 )
+[node name="AnimatedSprite24" type="AnimatedSprite" parent="Tiles/Tile Row 2/Tile"]
+position = Vector2( 20.6689, -0.729034 )
+rotation = -0.785398
+scale = Vector2( 0.05, 0.05 )
+frames = SubResource( 18 )
+frame = 6
+speed_scale = 1.5
+playing = true
 
-[node name="Tile3" parent="Tiles/Tile Row 2" instance=ExtResource( 3 )]
-position = Vector2( 328, 256 )
+[node name="AnimatedSprite23" type="AnimatedSprite" parent="Tiles/Tile Row 2/Tile"]
+position = Vector2( -19.6365, -0.729019 )
+rotation = -0.785398
+scale = Vector2( 0.05, 0.05 )
+frames = SubResource( 18 )
+frame = 6
+speed_scale = 1.5
+playing = true
 
-[node name="Tile4" parent="Tiles/Tile Row 2" instance=ExtResource( 3 )]
+[node name="Tile2" parent="Tiles/Tile Row 2" instance=ExtResource( 7 )]
+modulate = Color( 0.196078, 0.658824, 0.321569, 1 )
+self_modulate = Color( 0.196078, 0.658824, 0.321569, 1 )
+position = Vector2( 256, 255.835 )
+script = ExtResource( 8 )
+
+[node name="AnimatedSprite26" type="AnimatedSprite" parent="Tiles/Tile Row 2/Tile2"]
+position = Vector2( 22.0196, -0.814865 )
+rotation = -0.785398
+scale = Vector2( 0.05, 0.05 )
+frames = SubResource( 18 )
+frame = 5
+speed_scale = 1.5
+playing = true
+
+[node name="AnimatedSprite25" type="AnimatedSprite" parent="Tiles/Tile Row 2/Tile2"]
+position = Vector2( -19.7878, -1.06511 )
+rotation = -0.785398
+scale = Vector2( 0.05, 0.05 )
+frames = SubResource( 18 )
+frame = 6
+speed_scale = 1.5
+playing = true
+
+[node name="Tile3" parent="Tiles/Tile Row 2" instance=ExtResource( 7 )]
+modulate = Color( 0.196078, 0.658824, 0.321569, 1 )
+self_modulate = Color( 0.196078, 0.658824, 0.321569, 1 )
+position = Vector2( 326.834, 256 )
+script = ExtResource( 8 )
+
+[node name="AnimatedSprite28" type="AnimatedSprite" parent="Tiles/Tile Row 2/Tile3"]
+position = Vector2( 21.2819, -0.729141 )
+rotation = -0.785398
+scale = Vector2( 0.05, 0.05 )
+frames = SubResource( 18 )
+frame = 5
+speed_scale = 1.5
+playing = true
+
+[node name="AnimatedSprite27" type="AnimatedSprite" parent="Tiles/Tile Row 2/Tile3"]
+position = Vector2( -20.7759, -0.729126 )
+rotation = -0.785398
+scale = Vector2( 0.05, 0.05 )
+frames = SubResource( 18 )
+frame = 5
+speed_scale = 1.5
+playing = true
+
+[node name="Tile4" parent="Tiles/Tile Row 2" instance=ExtResource( 7 )]
+modulate = Color( 0.196078, 0.658824, 0.321569, 1 )
+self_modulate = Color( 0.196078, 0.658824, 0.321569, 1 )
 position = Vector2( 400, 256 )
+script = ExtResource( 8 )
 
-[node name="Tile5" parent="Tiles/Tile Row 2" instance=ExtResource( 3 )]
+[node name="AnimatedSprite30" type="AnimatedSprite" parent="Tiles/Tile Row 2/Tile4"]
+position = Vector2( 20.6521, -1.03653 )
+rotation = -0.785398
+scale = Vector2( 0.05, 0.05 )
+frames = SubResource( 18 )
+frame = 4
+speed_scale = 1.5
+playing = true
+
+[node name="AnimatedSprite29" type="AnimatedSprite" parent="Tiles/Tile Row 2/Tile4"]
+position = Vector2( -20.2263, -1.03654 )
+rotation = -0.785398
+scale = Vector2( 0.05, 0.05 )
+frames = SubResource( 18 )
+frame = 4
+speed_scale = 1.5
+playing = true
+
+[node name="Tile5" parent="Tiles/Tile Row 2" instance=ExtResource( 7 )]
+modulate = Color( 0.196078, 0.658824, 0.321569, 1 )
+self_modulate = Color( 0.196078, 0.658824, 0.321569, 1 )
 position = Vector2( 472, 256 )
+script = ExtResource( 8 )
 
-[node name="Tile6" parent="Tiles/Tile Row 2" instance=ExtResource( 3 )]
+[node name="AnimatedSprite31" type="AnimatedSprite" parent="Tiles/Tile Row 2/Tile5"]
+position = Vector2( -19.9974, -0.729187 )
+rotation = -0.785398
+scale = Vector2( 0.05, 0.05 )
+frames = SubResource( 18 )
+frame = 3
+speed_scale = 1.5
+playing = true
+
+[node name="AnimatedSprite32" type="AnimatedSprite" parent="Tiles/Tile Row 2/Tile5"]
+position = Vector2( 20.9088, -0.015686 )
+rotation = -0.785398
+scale = Vector2( 0.05, 0.05 )
+frames = SubResource( 18 )
+frame = 3
+speed_scale = 1.5
+playing = true
+
+[node name="Tile6" parent="Tiles/Tile Row 2" instance=ExtResource( 7 )]
+modulate = Color( 0.196078, 0.658824, 0.321569, 1 )
 position = Vector2( 544, 256 )
+script = ExtResource( 8 )
 
-[node name="Tile7" parent="Tiles/Tile Row 2" instance=ExtResource( 3 )]
+[node name="AnimatedSprite33" type="AnimatedSprite" parent="Tiles/Tile Row 2/Tile6"]
+position = Vector2( -18.9846, -0.015686 )
+rotation = 0.785398
+scale = Vector2( 0.05, 0.05 )
+frames = SubResource( 18 )
+frame = 2
+speed_scale = 1.5
+playing = true
+
+[node name="AnimatedSprite34" type="AnimatedSprite" parent="Tiles/Tile Row 2/Tile6"]
+position = Vector2( 21.9217, 0.222107 )
+rotation = 0.785398
+scale = Vector2( 0.05, 0.05 )
+frames = SubResource( 18 )
+frame = 2
+speed_scale = 1.5
+playing = true
+
+[node name="Tile7" parent="Tiles/Tile Row 2" instance=ExtResource( 7 )]
+modulate = Color( 0.196078, 0.658824, 0.321569, 1 )
 position = Vector2( 616, 256 )
+script = ExtResource( 8 )
 
-[node name="Tile8" parent="Tiles/Tile Row 2" instance=ExtResource( 3 )]
+[node name="AnimatedSprite35" type="AnimatedSprite" parent="Tiles/Tile Row 2/Tile7"]
+position = Vector2( -20.2435, -0.421783 )
+rotation = 0.785398
+scale = Vector2( 0.05, 0.05 )
+frames = SubResource( 18 )
+frame = 2
+speed_scale = 1.5
+playing = true
+
+[node name="AnimatedSprite36" type="AnimatedSprite" parent="Tiles/Tile Row 2/Tile7"]
+position = Vector2( 21.3964, -0.851028 )
+rotation = 0.785398
+scale = Vector2( 0.05, 0.05 )
+frames = SubResource( 18 )
+frame = 1
+speed_scale = 1.5
+playing = true
+
+[node name="Tile8" parent="Tiles/Tile Row 2" instance=ExtResource( 7 )]
+modulate = Color( 0.196078, 0.658824, 0.321569, 1 )
 position = Vector2( 688, 256 )
+script = ExtResource( 8 )
 
-[node name="Tile9" parent="Tiles/Tile Row 2" instance=ExtResource( 3 )]
+[node name="AnimatedSprite37" type="AnimatedSprite" parent="Tiles/Tile Row 2/Tile8"]
+position = Vector2( -18.837, -0.421722 )
+rotation = 0.785398
+scale = Vector2( 0.05, 0.05 )
+frames = SubResource( 18 )
+frame = 1
+speed_scale = 1.5
+playing = true
+
+[node name="AnimatedSprite38" type="AnimatedSprite" parent="Tiles/Tile Row 2/Tile8"]
+position = Vector2( 21.0858, -0.636353 )
+rotation = 0.785398
+scale = Vector2( 0.05, 0.05 )
+frames = SubResource( 18 )
+speed_scale = 1.5
+playing = true
+
+[node name="Tile9" parent="Tiles/Tile Row 2" instance=ExtResource( 7 )]
+modulate = Color( 0.196078, 0.658824, 0.321569, 1 )
 position = Vector2( 760, 256 )
+script = ExtResource( 8 )
 
-[node name="Tile10" parent="Tiles/Tile Row 2" instance=ExtResource( 3 )]
+[node name="AnimatedSprite40" type="AnimatedSprite" parent="Tiles/Tile Row 2/Tile9"]
+position = Vector2( 21.8484, -0.421692 )
+rotation = 0.785398
+scale = Vector2( 0.05, 0.05 )
+frames = SubResource( 18 )
+frame = 22
+speed_scale = 1.5
+playing = true
+
+[node name="AnimatedSprite39" type="AnimatedSprite" parent="Tiles/Tile Row 2/Tile9"]
+position = Vector2( -18.0745, -0.636368 )
+rotation = 0.785398
+scale = Vector2( 0.05, 0.05 )
+frames = SubResource( 18 )
+frame = 23
+speed_scale = 1.5
+playing = true
+
+[node name="Tile10" parent="Tiles/Tile Row 2" instance=ExtResource( 7 )]
+modulate = Color( 0.196078, 0.658824, 0.321569, 1 )
 position = Vector2( 832, 256 )
+script = ExtResource( 8 )
+
+[node name="AnimatedSprite41" type="AnimatedSprite" parent="Tiles/Tile Row 2/Tile10"]
+position = Vector2( -19.6729, 0.00750732 )
+rotation = 0.785398
+scale = Vector2( 0.05, 0.05 )
+frames = SubResource( 18 )
+frame = 22
+speed_scale = 1.5
+playing = true
+
+[node name="AnimatedSprite42" type="AnimatedSprite" parent="Tiles/Tile Row 2/Tile10"]
+position = Vector2( 21.5381, 0.436859 )
+rotation = 0.785398
+scale = Vector2( 0.05, 0.05 )
+frames = SubResource( 18 )
+frame = 21
+speed_scale = 1.5
+playing = true
 
 [node name="Tile Row 3" type="Node2D" parent="Tiles"]
 
-[node name="Tile" parent="Tiles/Tile Row 3" instance=ExtResource( 3 )]
+[node name="Tile" parent="Tiles/Tile Row 3" instance=ExtResource( 7 )]
+modulate = Color( 0.517647, 0.752941, 1, 1 )
 position = Vector2( 184, 216 )
+script = ExtResource( 9 )
 
-[node name="Tile2" parent="Tiles/Tile Row 3" instance=ExtResource( 3 )]
+[node name="AnimatedSprite43" type="AnimatedSprite" parent="Tiles/Tile Row 3/Tile"]
+position = Vector2( -21.2658, -0.43364 )
+rotation = 1.5708
+scale = Vector2( 0.05, 0.05 )
+frames = SubResource( 18 )
+frame = 21
+speed_scale = 1.5
+playing = true
+
+[node name="AnimatedSprite44" type="AnimatedSprite" parent="Tiles/Tile Row 3/Tile"]
+position = Vector2( 19.4026, -0.433655 )
+rotation = 1.5708
+scale = Vector2( 0.05, 0.05 )
+frames = SubResource( 18 )
+frame = 21
+speed_scale = 1.5
+playing = true
+
+[node name="Tile2" parent="Tiles/Tile Row 3" instance=ExtResource( 7 )]
+modulate = Color( 0.517647, 0.752941, 1, 1 )
 position = Vector2( 256, 216 )
+script = ExtResource( 9 )
 
-[node name="Tile3" parent="Tiles/Tile Row 3" instance=ExtResource( 3 )]
+[node name="AnimatedSprite46" type="AnimatedSprite" parent="Tiles/Tile Row 3/Tile2"]
+position = Vector2( 20.6533, -0.195831 )
+rotation = 1.5708
+scale = Vector2( 0.05, 0.05 )
+frames = SubResource( 18 )
+frame = 20
+speed_scale = 1.5
+playing = true
+
+[node name="AnimatedSprite45" type="AnimatedSprite" parent="Tiles/Tile Row 3/Tile2"]
+position = Vector2( -20.9664, -0.195831 )
+rotation = 1.5708
+scale = Vector2( 0.05, 0.05 )
+frames = SubResource( 18 )
+frame = 21
+speed_scale = 1.5
+playing = true
+
+[node name="Tile3" parent="Tiles/Tile Row 3" instance=ExtResource( 7 )]
+modulate = Color( 0.517647, 0.752941, 1, 1 )
 position = Vector2( 328, 216 )
+script = ExtResource( 9 )
 
-[node name="Tile4" parent="Tiles/Tile Row 3" instance=ExtResource( 3 )]
+[node name="AnimatedSprite47" type="AnimatedSprite" parent="Tiles/Tile Row 3/Tile3"]
+position = Vector2( -20.2279, -0.0210266 )
+rotation = 1.5708
+scale = Vector2( 0.05, 0.05 )
+frames = SubResource( 18 )
+frame = 19
+speed_scale = 1.5
+playing = true
+
+[node name="AnimatedSprite48" type="AnimatedSprite" parent="Tiles/Tile Row 3/Tile3"]
+position = Vector2( 20.681, 0.503479 )
+rotation = 1.5708
+scale = Vector2( 0.05, 0.05 )
+frames = SubResource( 18 )
+frame = 19
+speed_scale = 1.5
+playing = true
+
+[node name="Tile4" parent="Tiles/Tile Row 3" instance=ExtResource( 7 )]
+modulate = Color( 0.517647, 0.752941, 1, 1 )
 position = Vector2( 400, 216 )
+script = ExtResource( 9 )
 
-[node name="Tile5" parent="Tiles/Tile Row 3" instance=ExtResource( 3 )]
+[node name="AnimatedSprite50" type="AnimatedSprite" parent="Tiles/Tile Row 3/Tile4"]
+position = Vector2( 21.408, -0.370621 )
+rotation = 1.5708
+scale = Vector2( 0.05, 0.05 )
+frames = SubResource( 18 )
+frame = 17
+speed_scale = 1.5
+playing = true
+
+[node name="AnimatedSprite49" type="AnimatedSprite" parent="Tiles/Tile Row 3/Tile4"]
+position = Vector2( -19.3261, 0.328659 )
+rotation = 1.5708
+scale = Vector2( 0.05, 0.05 )
+frames = SubResource( 18 )
+frame = 18
+speed_scale = 1.5
+playing = true
+
+[node name="Tile5" parent="Tiles/Tile Row 3" instance=ExtResource( 7 )]
+modulate = Color( 0.517647, 0.752941, 1, 1 )
 position = Vector2( 472, 216 )
+script = ExtResource( 9 )
 
-[node name="Tile6" parent="Tiles/Tile Row 3" instance=ExtResource( 3 )]
+[node name="AnimatedSprite52" type="AnimatedSprite" parent="Tiles/Tile Row 3/Tile5"]
+position = Vector2( 20.5616, -0.0209198 )
+rotation = 1.5708
+scale = Vector2( 0.05, 0.05 )
+frames = SubResource( 18 )
+frame = 16
+speed_scale = 1.5
+playing = true
+
+[node name="AnimatedSprite51" type="AnimatedSprite" parent="Tiles/Tile Row 3/Tile5"]
+position = Vector2( -20.1726, -0.0209656 )
+rotation = 1.5708
+scale = Vector2( 0.05, 0.05 )
+frames = SubResource( 18 )
+frame = 17
+speed_scale = 1.5
+playing = true
+
+[node name="Tile6" parent="Tiles/Tile Row 3" instance=ExtResource( 7 )]
+modulate = Color( 0.517647, 0.752941, 1, 1 )
 position = Vector2( 544, 216 )
+script = ExtResource( 9 )
 
-[node name="Tile7" parent="Tiles/Tile Row 3" instance=ExtResource( 3 )]
+[node name="AnimatedSprite54" type="AnimatedSprite" parent="Tiles/Tile Row 3/Tile6"]
+position = Vector2( 22.1628, -0.195755 )
+rotation = 1.5708
+scale = Vector2( 0.05, 0.05 )
+frames = SubResource( 18 )
+frame = 16
+speed_scale = 1.5
+playing = true
+
+[node name="AnimatedSprite53" type="AnimatedSprite" parent="Tiles/Tile Row 3/Tile6"]
+position = Vector2( -20.3197, -0.19577 )
+rotation = 1.5708
+scale = Vector2( 0.05, 0.05 )
+frames = SubResource( 18 )
+frame = 16
+speed_scale = 1.5
+playing = true
+
+[node name="Tile7" parent="Tiles/Tile Row 3" instance=ExtResource( 7 )]
+modulate = Color( 0.517647, 0.752941, 1, 1 )
 position = Vector2( 616, 216 )
+script = ExtResource( 9 )
 
-[node name="Tile8" parent="Tiles/Tile Row 3" instance=ExtResource( 3 )]
+[node name="AnimatedSprite56" type="AnimatedSprite" parent="Tiles/Tile Row 3/Tile7"]
+position = Vector2( 21.8408, -0.195755 )
+rotation = 1.5708
+scale = Vector2( 0.05, 0.05 )
+frames = SubResource( 18 )
+frame = 14
+speed_scale = 1.5
+playing = true
+
+[node name="AnimatedSprite55" type="AnimatedSprite" parent="Tiles/Tile Row 3/Tile7"]
+position = Vector2( -20.9911, -0.720245 )
+rotation = 1.5708
+scale = Vector2( 0.05, 0.05 )
+frames = SubResource( 18 )
+frame = 15
+speed_scale = 1.5
+playing = true
+
+[node name="Tile8" parent="Tiles/Tile Row 3" instance=ExtResource( 7 )]
+modulate = Color( 0.517647, 0.752941, 1, 1 )
 position = Vector2( 688, 216 )
+script = ExtResource( 9 )
 
-[node name="Tile9" parent="Tiles/Tile Row 3" instance=ExtResource( 3 )]
+[node name="AnimatedSprite58" type="AnimatedSprite" parent="Tiles/Tile Row 3/Tile8"]
+position = Vector2( 21.5189, 0.153854 )
+rotation = 1.5708
+scale = Vector2( 0.05, 0.05 )
+frames = SubResource( 18 )
+frame = 13
+speed_scale = 1.5
+playing = true
+
+[node name="AnimatedSprite57" type="AnimatedSprite" parent="Tiles/Tile Row 3/Tile8"]
+position = Vector2( -21.488, -0.545441 )
+rotation = 1.5708
+scale = Vector2( 0.05, 0.05 )
+frames = SubResource( 18 )
+frame = 13
+speed_scale = 1.5
+playing = true
+
+[node name="Tile9" parent="Tiles/Tile Row 3" instance=ExtResource( 7 )]
+modulate = Color( 0.517647, 0.752941, 1, 1 )
 position = Vector2( 760, 216 )
+script = ExtResource( 9 )
 
-[node name="Tile10" parent="Tiles/Tile Row 3" instance=ExtResource( 3 )]
+[node name="AnimatedSprite60" type="AnimatedSprite" parent="Tiles/Tile Row 3/Tile9"]
+position = Vector2( 21.1971, 0.503555 )
+rotation = 1.5708
+scale = Vector2( 0.05, 0.05 )
+frames = SubResource( 18 )
+frame = 13
+speed_scale = 1.5
+playing = true
+
+[node name="AnimatedSprite59" type="AnimatedSprite" parent="Tiles/Tile Row 3/Tile9"]
+position = Vector2( -20.7609, 0.50351 )
+rotation = 1.5708
+scale = Vector2( 0.05, 0.05 )
+frames = SubResource( 18 )
+frame = 12
+speed_scale = 1.5
+playing = true
+
+[node name="Tile10" parent="Tiles/Tile Row 3" instance=ExtResource( 7 )]
+modulate = Color( 0.517647, 0.752941, 1, 1 )
 position = Vector2( 832, 216 )
+script = ExtResource( 9 )
+
+[node name="AnimatedSprite61" type="AnimatedSprite" parent="Tiles/Tile Row 3/Tile10"]
+position = Vector2( 21.2249, -0.0209198 )
+rotation = 1.5708
+scale = Vector2( 0.05, 0.05 )
+frames = SubResource( 18 )
+frame = 12
+speed_scale = 1.5
+playing = true
+
+[node name="AnimatedSprite62" type="AnimatedSprite" parent="Tiles/Tile Row 3/Tile10"]
+position = Vector2( -18.4603, 0.328751 )
+rotation = 1.5708
+scale = Vector2( 0.05, 0.05 )
+frames = SubResource( 18 )
+frame = 12
+speed_scale = 1.5
+playing = true
 
 [node name="Tile Row 4" type="Node2D" parent="Tiles"]
 
-[node name="Tile" parent="Tiles/Tile Row 4" instance=ExtResource( 3 )]
+[node name="Tile" parent="Tiles/Tile Row 4" instance=ExtResource( 7 )]
+modulate = Color( 0.988235, 0.54902, 0.0117647, 1 )
 position = Vector2( 184, 176 )
+script = ExtResource( 10 )
 
-[node name="Tile2" parent="Tiles/Tile Row 4" instance=ExtResource( 3 )]
+[node name="AnimatedSprite41" type="AnimatedSprite" parent="Tiles/Tile Row 4/Tile"]
+position = Vector2( -20.4195, 0.285309 )
+rotation = 0.785398
+scale = Vector2( 0.05, 0.05 )
+frames = SubResource( 18 )
+frame = 22
+speed_scale = 1.5
+playing = true
+
+[node name="AnimatedSprite42" type="AnimatedSprite" parent="Tiles/Tile Row 4/Tile"]
+position = Vector2( 20.5005, 0.435196 )
+rotation = 0.785398
+scale = Vector2( 0.05, 0.05 )
+frames = SubResource( 18 )
+frame = 22
+speed_scale = 1.5
+playing = true
+
+[node name="Tile2" parent="Tiles/Tile Row 4" instance=ExtResource( 7 )]
+modulate = Color( 0.988235, 0.54902, 0.0117647, 1 )
 position = Vector2( 256, 176 )
+script = ExtResource( 10 )
 
-[node name="Tile3" parent="Tiles/Tile Row 4" instance=ExtResource( 3 )]
+[node name="AnimatedSprite43" type="AnimatedSprite" parent="Tiles/Tile Row 4/Tile2"]
+position = Vector2( -20.6221, 0.135391 )
+rotation = 0.785398
+scale = Vector2( 0.05, 0.05 )
+frames = SubResource( 18 )
+frame = 21
+speed_scale = 1.5
+playing = true
+
+[node name="AnimatedSprite44" type="AnimatedSprite" parent="Tiles/Tile Row 4/Tile2"]
+position = Vector2( 20.5978, 0.435165 )
+rotation = 0.785398
+scale = Vector2( 0.05, 0.05 )
+frames = SubResource( 18 )
+frame = 21
+speed_scale = 1.5
+playing = true
+
+[node name="Tile3" parent="Tiles/Tile Row 4" instance=ExtResource( 7 )]
+modulate = Color( 0.988235, 0.54902, 0.0117647, 1 )
 position = Vector2( 328, 176 )
+script = ExtResource( 10 )
 
-[node name="Tile4" parent="Tiles/Tile Row 4" instance=ExtResource( 3 )]
+[node name="AnimatedSprite45" type="AnimatedSprite" parent="Tiles/Tile Row 4/Tile3"]
+position = Vector2( -20.225, 0.135376 )
+rotation = 0.785398
+scale = Vector2( 0.05, 0.05 )
+frames = SubResource( 18 )
+frame = 20
+speed_scale = 1.5
+playing = true
+
+[node name="AnimatedSprite46" type="AnimatedSprite" parent="Tiles/Tile Row 4/Tile3"]
+position = Vector2( 21.1447, -0.0144958 )
+rotation = 0.785398
+scale = Vector2( 0.05, 0.05 )
+frames = SubResource( 18 )
+frame = 19
+speed_scale = 1.5
+playing = true
+
+[node name="Tile4" parent="Tiles/Tile Row 4" instance=ExtResource( 7 )]
+modulate = Color( 0.988235, 0.54902, 0.0117647, 1 )
 position = Vector2( 400, 176 )
+script = ExtResource( 10 )
 
-[node name="Tile5" parent="Tiles/Tile Row 4" instance=ExtResource( 3 )]
+[node name="AnimatedSprite47" type="AnimatedSprite" parent="Tiles/Tile Row 4/Tile4"]
+position = Vector2( -20.2777, 0.285309 )
+rotation = 0.785398
+scale = Vector2( 0.05, 0.05 )
+frames = SubResource( 18 )
+frame = 19
+speed_scale = 1.5
+playing = true
+
+[node name="AnimatedSprite48" type="AnimatedSprite" parent="Tiles/Tile Row 4/Tile4"]
+position = Vector2( 19.8929, -0.164352 )
+rotation = 0.785398
+scale = Vector2( 0.05, 0.05 )
+frames = SubResource( 18 )
+frame = 19
+speed_scale = 1.5
+playing = true
+
+[node name="Tile5" parent="Tiles/Tile Row 4" instance=ExtResource( 7 )]
+modulate = Color( 0.988235, 0.54902, 0.0117647, 1 )
 position = Vector2( 472, 176 )
+script = ExtResource( 10 )
 
-[node name="Tile6" parent="Tiles/Tile Row 4" instance=ExtResource( 3 )]
+[node name="AnimatedSprite49" type="AnimatedSprite" parent="Tiles/Tile Row 4/Tile5"]
+position = Vector2( -19.7309, 0.41127 )
+rotation = 0.785398
+scale = Vector2( 0.05, 0.05 )
+frames = SubResource( 18 )
+frame = 18
+speed_scale = 1.5
+playing = true
+
+[node name="AnimatedSprite50" type="AnimatedSprite" parent="Tiles/Tile Row 4/Tile5"]
+position = Vector2( 20.6212, 0.840546 )
+rotation = 0.785398
+scale = Vector2( 0.05, 0.05 )
+frames = SubResource( 18 )
+frame = 18
+speed_scale = 1.5
+playing = true
+
+[node name="Tile6" parent="Tiles/Tile Row 4" instance=ExtResource( 7 )]
+modulate = Color( 0.988235, 0.54902, 0.0117647, 1 )
 position = Vector2( 544, 176 )
+script = ExtResource( 10 )
 
-[node name="Tile7" parent="Tiles/Tile Row 4" instance=ExtResource( 3 )]
+[node name="AnimatedSprite52" type="AnimatedSprite" parent="Tiles/Tile Row 4/Tile6"]
+position = Vector2( 19.0227, 0.196625 )
+rotation = -0.785398
+scale = Vector2( 0.05, 0.05 )
+frames = SubResource( 18 )
+frame = 16
+speed_scale = 1.5
+playing = true
+
+[node name="AnimatedSprite51" type="AnimatedSprite" parent="Tiles/Tile Row 4/Tile6"]
+position = Vector2( -20.8699, -0.0485992 )
+rotation = -0.785398
+scale = Vector2( 0.05, 0.05 )
+frames = SubResource( 18 )
+frame = 17
+speed_scale = 1.5
+playing = true
+
+[node name="Tile7" parent="Tiles/Tile Row 4" instance=ExtResource( 7 )]
+modulate = Color( 0.988235, 0.54902, 0.0117647, 1 )
 position = Vector2( 616, 176 )
+script = ExtResource( 10 )
 
-[node name="Tile8" parent="Tiles/Tile Row 4" instance=ExtResource( 3 )]
+[node name="AnimatedSprite54" type="AnimatedSprite" parent="Tiles/Tile Row 4/Tile7"]
+position = Vector2( -20.2206, 0.748718 )
+rotation = -0.785398
+scale = Vector2( 0.05, 0.05 )
+frames = SubResource( 18 )
+frame = 15
+speed_scale = 1.5
+playing = true
+
+[node name="AnimatedSprite53" type="AnimatedSprite" parent="Tiles/Tile Row 4/Tile7"]
+position = Vector2( 21.7372, 0.380646 )
+rotation = -0.785398
+scale = Vector2( 0.05, 0.05 )
+frames = SubResource( 18 )
+frame = 16
+speed_scale = 1.5
+playing = true
+
+[node name="Tile8" parent="Tiles/Tile Row 4" instance=ExtResource( 7 )]
+modulate = Color( 0.988235, 0.54902, 0.0117647, 1 )
 position = Vector2( 688, 176 )
+script = ExtResource( 10 )
 
-[node name="Tile9" parent="Tiles/Tile Row 4" instance=ExtResource( 3 )]
+[node name="AnimatedSprite56" type="AnimatedSprite" parent="Tiles/Tile Row 4/Tile8"]
+position = Vector2( 20.2192, 0.564697 )
+rotation = -0.785398
+scale = Vector2( 0.05, 0.05 )
+frames = SubResource( 18 )
+frame = 15
+speed_scale = 1.5
+playing = true
+
+[node name="AnimatedSprite55" type="AnimatedSprite" parent="Tiles/Tile Row 4/Tile8"]
+position = Vector2( -20.4506, 0.748749 )
+rotation = -0.785398
+scale = Vector2( 0.05, 0.05 )
+frames = SubResource( 18 )
+frame = 15
+speed_scale = 1.5
+playing = true
+
+[node name="Tile9" parent="Tiles/Tile Row 4" instance=ExtResource( 7 )]
+modulate = Color( 0.988235, 0.54902, 0.0117647, 1 )
 position = Vector2( 760, 176 )
+script = ExtResource( 10 )
 
-[node name="Tile10" parent="Tiles/Tile Row 4" instance=ExtResource( 3 )]
+[node name="AnimatedSprite57" type="AnimatedSprite" parent="Tiles/Tile Row 4/Tile9"]
+position = Vector2( -19.7604, 0.564728 )
+rotation = -0.785398
+scale = Vector2( 0.05, 0.05 )
+frames = SubResource( 18 )
+frame = 14
+speed_scale = 1.5
+playing = true
+
+[node name="AnimatedSprite58" type="AnimatedSprite" parent="Tiles/Tile Row 4/Tile9"]
+position = Vector2( 20.5414, 0.564697 )
+rotation = -0.785398
+scale = Vector2( 0.05, 0.05 )
+frames = SubResource( 18 )
+frame = 14
+speed_scale = 1.5
+playing = true
+
+[node name="Tile10" parent="Tiles/Tile Row 4" instance=ExtResource( 7 )]
+modulate = Color( 0.988235, 0.54902, 0.0117647, 1 )
 position = Vector2( 832, 176 )
+script = ExtResource( 10 )
+
+[node name="AnimatedSprite59" type="AnimatedSprite" parent="Tiles/Tile Row 4/Tile10"]
+position = Vector2( -20.1743, -0.171387 )
+rotation = -0.785398
+scale = Vector2( 0.05, 0.05 )
+frames = SubResource( 18 )
+frame = 13
+speed_scale = 1.5
+playing = true
+
+[node name="AnimatedSprite60" type="AnimatedSprite" parent="Tiles/Tile Row 4/Tile10"]
+position = Vector2( 20.3116, 0.0126038 )
+rotation = -0.785398
+scale = Vector2( 0.05, 0.05 )
+frames = SubResource( 18 )
+frame = 12
+speed_scale = 1.5
+playing = true
 
 [node name="Tile Row 5" type="Node2D" parent="Tiles"]
 
-[node name="Tile" parent="Tiles/Tile Row 5" instance=ExtResource( 3 )]
+[node name="Tile" parent="Tiles/Tile Row 5" instance=ExtResource( 7 )]
+modulate = Color( 0.964706, 0.0156863, 0.0156863, 1 )
 position = Vector2( 184, 136 )
+script = ExtResource( 11 )
 
-[node name="Tile2" parent="Tiles/Tile Row 5" instance=ExtResource( 3 )]
+[node name="AnimatedSprite4" type="AnimatedSprite" parent="Tiles/Tile Row 5/Tile"]
+position = Vector2( -20.7018, 0.180725 )
+scale = Vector2( 0.05, 0.05 )
+frames = SubResource( 18 )
+frame = 15
+speed_scale = 1.5
+playing = true
+
+[node name="AnimatedSprite5" type="AnimatedSprite" parent="Tiles/Tile Row 5/Tile"]
+position = Vector2( 19.8711, -0.206711 )
+scale = Vector2( 0.05, 0.05 )
+frames = SubResource( 18 )
+frame = 15
+speed_scale = 1.5
+playing = true
+
+[node name="Tile2" parent="Tiles/Tile Row 5" instance=ExtResource( 7 )]
+modulate = Color( 0.964706, 0.0156863, 0.0156863, 1 )
 position = Vector2( 256, 136 )
+script = ExtResource( 11 )
 
-[node name="Tile3" parent="Tiles/Tile Row 5" instance=ExtResource( 3 )]
+[node name="AnimatedSprite7" type="AnimatedSprite" parent="Tiles/Tile Row 5/Tile2"]
+position = Vector2( 21.0554, 0.0160065 )
+scale = Vector2( 0.05, 0.05 )
+frames = SubResource( 18 )
+frame = 14
+speed_scale = 1.5
+playing = true
+
+[node name="AnimatedSprite6" type="AnimatedSprite" parent="Tiles/Tile Row 5/Tile2"]
+position = Vector2( -21.2997, -0.0324097 )
+scale = Vector2( 0.05, 0.05 )
+frames = SubResource( 18 )
+frame = 14
+speed_scale = 1.5
+playing = true
+
+[node name="Tile3" parent="Tiles/Tile Row 5" instance=ExtResource( 7 )]
+modulate = Color( 0.964706, 0.0156863, 0.0156863, 1 )
 position = Vector2( 328, 136 )
+script = ExtResource( 11 )
 
-[node name="Tile4" parent="Tiles/Tile Row 5" instance=ExtResource( 3 )]
+[node name="AnimatedSprite8" type="AnimatedSprite" parent="Tiles/Tile Row 5/Tile3"]
+position = Vector2( 21.2032, -0.187378 )
+scale = Vector2( 0.05, 0.05 )
+frames = SubResource( 18 )
+frame = 14
+speed_scale = 1.5
+playing = true
+
+[node name="AnimatedSprite9" type="AnimatedSprite" parent="Tiles/Tile Row 5/Tile3"]
+position = Vector2( -20.5707, -0.206726 )
+scale = Vector2( 0.05, 0.05 )
+frames = SubResource( 18 )
+frame = 13
+speed_scale = 1.5
+playing = true
+
+[node name="Tile4" parent="Tiles/Tile Row 5" instance=ExtResource( 7 )]
+modulate = Color( 0.964706, 0.0156863, 0.0156863, 1 )
 position = Vector2( 400, 136 )
+script = ExtResource( 11 )
 
-[node name="Tile5" parent="Tiles/Tile Row 5" instance=ExtResource( 3 )]
+[node name="AnimatedSprite10" type="AnimatedSprite" parent="Tiles/Tile Row 5/Tile4"]
+position = Vector2( -20.1904, -0.381104 )
+scale = Vector2( 0.05, 0.05 )
+frames = SubResource( 18 )
+frame = 13
+speed_scale = 1.5
+playing = true
+
+[node name="AnimatedSprite11" type="AnimatedSprite" parent="Tiles/Tile Row 5/Tile4"]
+position = Vector2( 20.1016, -0.381119 )
+scale = Vector2( 0.05, 0.05 )
+frames = SubResource( 18 )
+frame = 13
+speed_scale = 1.5
+playing = true
+
+[node name="Tile5" parent="Tiles/Tile Row 5" instance=ExtResource( 7 )]
+modulate = Color( 0.964706, 0.0156863, 0.0156863, 1 )
 position = Vector2( 472, 136 )
+script = ExtResource( 11 )
 
-[node name="Tile6" parent="Tiles/Tile Row 5" instance=ExtResource( 3 )]
+[node name="AnimatedSprite12" type="AnimatedSprite" parent="Tiles/Tile Row 5/Tile5"]
+position = Vector2( -21.0982, 0.200012 )
+scale = Vector2( 0.05, 0.05 )
+frames = SubResource( 18 )
+frame = 12
+speed_scale = 1.5
+playing = true
+
+[node name="AnimatedSprite13" type="AnimatedSprite" parent="Tiles/Tile Row 5/Tile5"]
+position = Vector2( 20.9372, 0.00628662 )
+scale = Vector2( 0.05, 0.05 )
+frames = SubResource( 18 )
+frame = 12
+speed_scale = 1.5
+playing = true
+
+[node name="Tile6" parent="Tiles/Tile Row 5" instance=ExtResource( 7 )]
+modulate = Color( 0.964706, 0.0156863, 0.0156863, 1 )
 position = Vector2( 544, 136 )
+script = ExtResource( 11 )
 
-[node name="Tile7" parent="Tiles/Tile Row 5" instance=ExtResource( 3 )]
+[node name="AnimatedSprite14" type="AnimatedSprite" parent="Tiles/Tile Row 5/Tile6"]
+position = Vector2( -20.6501, 0.393677 )
+scale = Vector2( 0.05, 0.05 )
+frames = SubResource( 18 )
+frame = 11
+speed_scale = 1.5
+playing = true
+
+[node name="AnimatedSprite15" type="AnimatedSprite" parent="Tiles/Tile Row 5/Tile6"]
+position = Vector2( 21.1917, 0.199936 )
+scale = Vector2( 0.05, 0.05 )
+frames = SubResource( 18 )
+frame = 10
+speed_scale = 1.5
+playing = true
+
+[node name="Tile7" parent="Tiles/Tile Row 5" instance=ExtResource( 7 )]
+modulate = Color( 0.964706, 0.0156863, 0.0156863, 1 )
 position = Vector2( 616, 136 )
+script = ExtResource( 11 )
 
-[node name="Tile8" parent="Tiles/Tile Row 5" instance=ExtResource( 3 )]
+[node name="AnimatedSprite16" type="AnimatedSprite" parent="Tiles/Tile Row 5/Tile7"]
+position = Vector2( -20.3958, 0.3936 )
+scale = Vector2( 0.05, 0.05 )
+frames = SubResource( 18 )
+frame = 10
+speed_scale = 1.5
+playing = true
+
+[node name="AnimatedSprite17" type="AnimatedSprite" parent="Tiles/Tile Row 5/Tile7"]
+position = Vector2( 21.0584, 0.3936 )
+scale = Vector2( 0.05, 0.05 )
+frames = SubResource( 18 )
+frame = 10
+speed_scale = 1.5
+playing = true
+
+[node name="Tile8" parent="Tiles/Tile Row 5" instance=ExtResource( 7 )]
+modulate = Color( 0.964706, 0.0156863, 0.0156863, 1 )
 position = Vector2( 688, 136 )
+script = ExtResource( 11 )
 
-[node name="Tile9" parent="Tiles/Tile Row 5" instance=ExtResource( 3 )]
+[node name="AnimatedSprite18" type="AnimatedSprite" parent="Tiles/Tile Row 5/Tile8"]
+position = Vector2( -20.612, 0.227524 )
+scale = Vector2( 0.05, 0.05 )
+frames = SubResource( 18 )
+frame = 9
+speed_scale = 1.5
+playing = true
+
+[node name="AnimatedSprite19" type="AnimatedSprite" parent="Tiles/Tile Row 5/Tile8"]
+position = Vector2( 20.3443, 0.00617981 )
+scale = Vector2( 0.05, 0.05 )
+frames = SubResource( 18 )
+frame = 9
+speed_scale = 1.5
+playing = true
+
+[node name="Tile9" parent="Tiles/Tile Row 5" instance=ExtResource( 7 )]
+modulate = Color( 0.964706, 0.0156863, 0.0156863, 1 )
 position = Vector2( 760, 136 )
+script = ExtResource( 11 )
 
-[node name="Tile10" parent="Tiles/Tile Row 5" instance=ExtResource( 3 )]
-position = Vector2( 832, 136 )
+[node name="AnimatedSprite20" type="AnimatedSprite" parent="Tiles/Tile Row 5/Tile9"]
+position = Vector2( -20.9301, 0.172256 )
+scale = Vector2( 0.05, 0.05 )
+frames = SubResource( 18 )
+frame = 8
+speed_scale = 1.5
+playing = true
+
+[node name="AnimatedSprite21" type="AnimatedSprite" parent="Tiles/Tile Row 5/Tile9"]
+position = Vector2( 21.421, 0.172256 )
+scale = Vector2( 0.05, 0.05 )
+frames = SubResource( 18 )
+frame = 7
+speed_scale = 1.5
+playing = true
+
+[node name="Tile10" parent="Tiles/Tile Row 5" instance=ExtResource( 7 )]
+modulate = Color( 0.964706, 0.0156863, 0.0156863, 1 )
+position = Vector2( 832, 136.463 )
+script = ExtResource( 11 )
+
+[node name="AnimatedSprite22" type="AnimatedSprite" parent="Tiles/Tile Row 5/Tile10"]
+position = Vector2( -21.1824, 0.0410767 )
+scale = Vector2( 0.05, 0.05 )
+frames = SubResource( 18 )
+frame = 7
+speed_scale = 1.5
+playing = true
+
+[node name="AnimatedSprite23" type="AnimatedSprite" parent="Tiles/Tile Row 5/Tile10"]
+position = Vector2( 20.8367, -0.457199 )
+scale = Vector2( 0.05, 0.05 )
+frames = SubResource( 18 )
+frame = 7
+speed_scale = 1.5
+playing = true
+
+[node name="HUD" type="Node2D" parent="."]
+
+[node name="ColorRect3" type="ColorRect" parent="HUD"]
+margin_left = -6.0
+margin_top = 1.0
+margin_right = 133.0
+margin_bottom = 60.0
+color = Color( 0.160784, 0.152941, 0.392157, 1 )
+
+[node name="ColorRect" type="ColorRect" parent="HUD"]
+margin_top = 1.0
+margin_right = 122.0
+margin_bottom = 47.0
+
+[node name="ColorRect4" type="ColorRect" parent="HUD"]
+margin_left = 892.0
+margin_top = -2.0
+margin_right = 1026.0
+margin_bottom = 57.0
+color = Color( 0.929412, 0.521569, 0, 1 )
+
+[node name="ColorRect2" type="ColorRect" parent="HUD"]
+margin_left = 904.0
+margin_top = -2.0
+margin_right = 1026.0
+margin_bottom = 44.0
 
 [node name="Score" type="Label" parent="."]
-margin_left = 24.0
-margin_top = 16.0
-margin_right = 112.0
-margin_bottom = 30.0
+margin_left = 17.9355
+margin_top = 16.8454
+margin_right = 105.936
+margin_bottom = 30.8454
+custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Score: "
-script = ExtResource( 4 )
-
-[node name="Lives" type="Label" parent="."]
-margin_left = 952.0
-margin_top = 16.0
-margin_right = 1006.0
-margin_bottom = 30.0
-text = "Lives:"
-script = ExtResource( 5 )
+script = ExtResource( 12 )
 
 [node name="Starting" type="Label" parent="."]
 margin_right = 1024.0
 margin_bottom = 112.0
 align = 1
 valign = 1
-script = ExtResource( 6 )
+script = ExtResource( 13 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Timer" type="Timer" parent="Starting"]
 wait_time = 10.0
+
+[node name="Lives" type="Label" parent="."]
+margin_left = 921.306
+margin_top = 17.3108
+margin_right = 975.306
+margin_bottom = 31.3108
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Lives:"
+script = ExtResource( 14 )
+
+[node name="over" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 15 )
 [connection signal="timeout" from="Starting/Timer" to="Starting" method="_on_Timer_timeout"]

@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/glass_004.ogg-0a6c318c6216a737a2fd052c44108535.oggstr"
+
+[deps]
+
+source_file="res://Assets/glass_004.ogg"
+dest_files=[ "res://.import/glass_004.ogg-0a6c318c6216a737a2fd052c44108535.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

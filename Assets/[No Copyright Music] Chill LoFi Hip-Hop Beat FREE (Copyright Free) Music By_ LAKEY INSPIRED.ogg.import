@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/[No Copyright Music] Chill LoFi Hip-Hop Beat FREE (Copyright Free) Music By_ LAKEY INSPIRED.ogg-3f3a64596d794dc452584cdf5c9edd30.oggstr"
+
+[deps]
+
+source_file="res://Assets/[No Copyright Music] Chill LoFi Hip-Hop Beat FREE (Copyright Free) Music By_ LAKEY INSPIRED.ogg"
+dest_files=[ "res://.import/[No Copyright Music] Chill LoFi Hip-Hop Beat FREE (Copyright Free) Music By_ LAKEY INSPIRED.ogg-3f3a64596d794dc452584cdf5c9edd30.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

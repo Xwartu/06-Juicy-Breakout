@@ -1,5 +1,7 @@
 extends RigidBody2D
 
+
+onready var glass = $glass
 onready var Game = get_node("/root/Game")
 onready var Starting = get_node("/root/Game/Starting")
 
@@ -14,8 +16,11 @@ func _physics_process(delta):
 		if body.is_in_group("Tiles"):
 			Game.change_score(body.points)
 			body.queue_free()
-	
+			glass.playing = true 
+		else:
+			glass.playing = false
 	if position.y > get_viewport().size.y:
 		Game.change_lives(-1)
 		Starting.startCountdown(3)
 		queue_free()
+		
