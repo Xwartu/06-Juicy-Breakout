@@ -57,7 +57,7 @@ For some reason the eyes seem to be clipping through the tiles in the scene menu
 10. Added Game over music
 11. Added eyes1 to Tileset 1 and Tileset 5
 12. Added different eyes to tileset 2 and 4
-13. Added unique eyes to tileset 5
+13. Added unique eyes to tileset 3
 14. New Gameover screen
 15. New win screen 
 16. Win screen music
